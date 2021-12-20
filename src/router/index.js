@@ -4,7 +4,7 @@ import About from '../views/About.vue'
 
 const routes = [
   {
-    path: '/ ',
+    path: '/',
     name: 'Solutions',
     component: Solutions
   },

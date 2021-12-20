@@ -4,7 +4,7 @@ np<template>
       <router-link to="/">Solutions</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <h1>ATPL</h1>
+    
     <router-view />
   </div>
 </template>
