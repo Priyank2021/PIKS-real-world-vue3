@@ -1,8 +1,8 @@
-np<template>
+<template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Solutions</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link :to= "{ name: 'Solutions' }" > Solutions </router-link> |
+      <router-link :to= "{ name: 'About' }" > About </router-link>
     </div>
     
     <router-view />
