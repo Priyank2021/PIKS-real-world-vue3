@@ -5,6 +5,7 @@ import EventDetails from '../views/event/Details.vue'
 import EventRegister from '../views/event/Register.vue'
 import EventEdit from '../views/event/Edit.vue'
 import About from '../views/About.vue'
+import NProgress from 'nprogress'
 
 const routes = [
   {
@@ -32,7 +33,8 @@ const routes = [
       {
         path: 'edit',
         name: 'EventEdit',
-        component: EventEdit
+        component: EventEdit,
+        meta: { requireAuth: true }
       }
     ]
   },
@@ -54,7 +56,28 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior() { 
+    // scroll to top
+    return { top: 0 }
+  }
+})
+router.beforeEach(() => {
+  NProgress.start()
+  const notAuthorized = true
+  if (to.meta.requireAuth && notAuthorized) {
+    GStore.flashMessage = 'Sorry, you are not authorized to view this page'
+
+    setTimeout(() => {
+      GStore.flashMessage = ''
+    }, 3000)
+
+    return false
+  }
+})
+
+router.afterEach(() => {
+  NProgress.done()
 })
 
 export default router
