@@ -39,18 +39,15 @@ const routes = [
     ]
   },
   {
-    //path: '/event/:id',
     path: '/event/:afterEvent(.*)',
     redirect: to => {
       return { path: '/events/' + to.params.afterEvent }
     }
   },
-
   {
-    path: '/about-us',
+    path: '/about',
     name: 'About',
-    component: About,
-    alias: '/about'
+    component: About
   },
   {
     path: '/:catchAll(.*)',

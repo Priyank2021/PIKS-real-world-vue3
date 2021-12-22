@@ -4,8 +4,7 @@
       <router-link :to= "{ name: 'Solutions' }" > Solutions </router-link> |
       <router-link :to= "{ name: 'About' }" > About </router-link>
     </div>
-    
-    <router-view />
+      <router-view />
   </div>
 </template>
 
